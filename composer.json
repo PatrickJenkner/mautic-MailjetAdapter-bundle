@@ -1,5 +1,5 @@
 {
-    "name": "leuchtfeuer/mautic-mailjetadapter-bundle",
+    "name": "leuchtfeuer/mautic-mailjetadapter-bundle-2",
     "description": "Plugin allows sending emails with Mailjet in batches via API and callback handling used for bounce management.",
     "type": "mautic-plugin",
     "license": "GPL-3.0-or-later",
