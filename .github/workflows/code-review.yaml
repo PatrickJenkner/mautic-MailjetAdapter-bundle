@@ -16,9 +16,3 @@ jobs:
           path: .github/ai_review
       - name: debug
         run: ls -la .github
-      - name: AI Code Review
-        uses: ./.github/ai_review/.github/actions/ai_review
-        with:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
