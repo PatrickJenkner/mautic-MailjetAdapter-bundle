@@ -15,5 +15,4 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           path: .github/ai_review
       - name: debug
-        run: ls -la .github/ai_review
-
+        run: ls -la .github/ai_review/.github
