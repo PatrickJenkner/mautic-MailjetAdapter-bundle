@@ -12,10 +12,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: Leuchtfeuer/mautic-ci-runner
-          ref: 212d55114eb09d887b16bf414a5fec5d3919c212
           token: ${{ secrets.GH_TOKEN }}
-          path: .github/workflows/ai_review.yaml
+          path: .github/ai_review
+      - name: debug
+        run: ls -la .github
       - name: AI Code Review
-        uses: ./.github/workflows/ai_review.yaml
-        env:
+        uses: ./.github/ai_review/.github/actions/ai_review
+        with:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
