@@ -5,16 +5,17 @@ on:
     types: [opened, reopened, synchronize, review_requested]
 
 jobs:
-  checkout:
-    name: Checkout workflow repository
-    uses: actions/checkout@v2
-    with:
-      repository: Leuchtfeuer/mautic-ci-runner
-      ref: 212d55114eb09d887b16bf414a5fec5d3919c212
-      token: ${{ secrets.GH_TOKEN }}
-      path: .github/workflows/ai_review.yaml
   ai-review:
-    name: AI Code Review
-    uses: ./.github/workflows/ai_review.yaml
-    secrets:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout workflow repository
+        uses: actions/checkout@v2
+        with:
+          repository: Leuchtfeuer/mautic-ci-runner
+          ref: 212d55114eb09d887b16bf414a5fec5d3919c212
+          token: ${{ secrets.GH_TOKEN }}
+          path: .github/workflows/ai_review.yaml
+      - name: AI Code Review
+        uses: ./.github/workflows/ai_review.yaml
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
