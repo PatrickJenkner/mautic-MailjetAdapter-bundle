@@ -14,16 +14,10 @@ jobs:
           repository: Leuchtfeuer/mautic-ci-runner
           token: ${{ secrets.GH_TOKEN }}
           path: .github/pr_review
-      - name: debug 1
-        run: |
-          ls -la .github/pr_review
-          ls -la .github/pr_review/.github/actions
       - name: move action file
         run: mv .github/pr_review/.github/actions/ai_review ./.github
-      - name: debug
-        run: ls -la .github
       - name: AI Code Review
         uses: ./.github/ai_review
         with:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LLM_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
