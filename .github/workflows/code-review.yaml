@@ -19,7 +19,7 @@ jobs:
       - name: move action file
         run: mv .github/pr_review/.github/actions/ai_review ./.github
       - name: zip workflows
-        run: zip -r workflows.zip *
+        run: zip -r workflows.zip .github/*
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
