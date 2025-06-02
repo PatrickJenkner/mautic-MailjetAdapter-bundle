@@ -14,7 +14,7 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-This plugin enable Mautic 5 to run Mailjet as a email transport.
+This plugin enable Mautic 5 to run Mailjet as a email transport...
 
 REQUIREMENTS
 ------------
