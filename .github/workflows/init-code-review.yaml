@@ -9,7 +9,7 @@ jobs:
     name: Check permissions
     steps:
       - name: Permission granted
-        if: ${{ github.event.pull_request.author_association == 'COLLABORATOR' || github.event.pull_request.author_association == 'MEMBER' }}
+        if: contains('OWNER,MEMBER,COLLABORATOR', github.event.pull_request.author_association)
         run: echo "Permissions sufficient. Running Code Review"
       - name: Permission denied
         if: ${{ github.event.pull_request.author_association != 'COLLABORATOR' && github.event.pull_request.author_association != 'MEMBER' }}
